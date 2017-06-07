@@ -99,7 +99,7 @@ Twitch.prototype.getAuthorizationUrl = function(){
   for (var i = 0; i < this.scopes.length;  i++){
     scopesParam += this.scopes[i];
     if (i != (this.scopes.length - 1)){
-      scopesParam += '+';
+      scopesParam += ' ';
     }
   }
 
