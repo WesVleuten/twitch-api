@@ -95,8 +95,15 @@ Twitch.prototype._executeRequest = function(options, parameters, callback){
  *          authorization
  */
 Twitch.prototype.getAuthorizationUrl = function(){
+  var scopesParam = '';
+  for (var i = 0; i < this.scopes.length;  i++){
+    scopesParam += this.scopes[i];
+    if (i != (this.scopes.length - 1)){
+      scopesParam += '+';
+    }
+  }
+
   var qs = require('querystring')
-  var scopesParam = this.scope.join('+');
   return baseUrl + authorizePath +
     '?response_type=code' +
     '&client_id=' + qs.escape(this.clientId) +
